@@ -1,0 +1,65 @@
+﻿@model RegistrationForm.Models.RegistrationAccount
+<head>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="registrationformcss.css"/>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <title>..::Đăng Kí::..</title>
+    <script>
+        $(function () {
+            $("#birthday").datepicker();
+        });
+    </script>
+</head>
+
+
+@using (Html.BeginForm("", "RegistrationForm", FormMethod.Post, new { @class = "form", role = "form", @id = "registration-form" }))
+{
+    <h1>ĐĂNG KÍ TÀI KHOẢN</h1>
+    <div class="info" id="account-info">
+        <h3>Thông tin tài khoản</h3>
+        <div class="info-row">
+            @Html.Label("username", "Tên đăng nhập", new { @class = "label" })
+            @Html.TextBoxFor(m => m.Accountinfo.Username, new { @class = "", @id = "username"})
+        </div>
+        <div class="info-row">
+            @Html.Label("password", "Mật khẩu", new { @class = "label" })
+            @Html.PasswordFor(m => m.Accountinfo.Password, new { @class = "", @id = "password", value = Model.Accountinfo.Password })
+        </div>
+        <div class="info-row">
+            @Html.Label("repassword", "Nhập lại mật khẩu", new { @class = "label" })
+            @Html.PasswordFor(m => m.Accountinfo.RePassword, new { @class = "", @id = "repassword", value = Model.Accountinfo.RePassword })
+        </div>
+        <div class="info-row">
+            @Html.Label("email", "Email", new { @class = "label" })
+            @Html.TextBoxFor(m => m.Accountinfo.Mail, new { @class = "", @id = "email" })
+        </div>
+    </div>
+    
+    <div class="info" id="personal-info">
+        <h3>Thông tin cá nhân</h3>
+        <div class="info-row">
+            @Html.Label("sex", "Giới tính", new { @class = "label" })
+            @Html.DropDownListFor(model => model.PersonalInfo.Sex, new SelectList(ViewBag.SexyType,
+                  "Value",
+                  "Text",
+                   0), new { @class="", @id="sexy-type-list"})
+        </div>
+        <div class="info-row">
+            @Html.Label("birthday", "Ngày tháng năm sinh", new { @class = "label" })
+            @Html.TextBoxFor(m => m.PersonalInfo.Birthday, new { @class = "", @id = "birthday" })
+        </div>
+        <div class="info-row">
+            @Html.Label("currentaddress", "Nơi ở hiện tại", new { @class = "label" })
+            @Html.DropDownListFor(m => m.PersonalInfo.Currentaddress, new SelectList(ViewBag.Citis, "Value", "Text", 0), new {@class="", @id="current-address"})
+        </div>
+        <div class="info-row">
+            @Html.Label("phonenumber", "Điện thoại liên lạc", new { @class = "label" })
+            @Html.TextBoxFor(m => m.PersonalInfo.Phonenumber, new { @class = "", @id = "phonenumber" })
+        </div>
+    </div>
+    
+    <div class="submit">
+        <input type="submit" value="Đăng kí" />
+    </div>
+}

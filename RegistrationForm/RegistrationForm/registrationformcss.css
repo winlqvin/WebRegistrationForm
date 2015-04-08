@@ -1,0 +1,57 @@
+﻿body {
+    margin-left:auto;
+    margin-right:auto;
+    width: 960px;
+    background-color: #f5fafe;
+    font-size: 16px;
+}
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+#registration-form h1{
+    font-weight:bolder;
+    color:blue;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#registration-form h3{
+    margin-bottom: 15px;
+}
+
+#registration-form{
+    background: white;
+    width: 450px;
+    margin: 50px auto;
+    padding:20px;
+    border-radius: 5px;
+}
+
+.label{
+    width: 200px;
+    margin-bottom: 10px;
+    display:inline-block;
+}
+
+#registration-form .info input{
+    width: 200px;
+    display:inline-block;
+    padding: 5px;
+}
+
+#registration-form .info select{
+    padding: 5px;
+    
+}
+
+#registration-form .submit input{
+    display:inline-block;
+    padding: 5px;
+    border-radius: 3px;
+    background-color:transparent;
+    width: 100px;
+}
